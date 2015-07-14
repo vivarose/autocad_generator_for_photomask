@@ -7,121 +7,123 @@ function mask(varargin)
     newline = 10; % Windows newline character
     
     % settings
-    masksize = 38000*um;
+    masksize = 3.8*cm;
     textheight = 1.5*mm;
     textspacing = 1*mm + textheight; % distance between bottom of square and bottom of text
     %relative_center_y_top_row = chipsize-1*mm-(2500*um)/2; % measured from bottom of chip
     %do_hatch = false;
     
-    % Draw circle for the chip
+    %% Draw circle for the chip
     diam = masksize;
     circle_src = circ3(0,0,diam/2);
     info = ['Wafer diameter is ' num2str(diam) ' um.' newline];
     scr = [ erase_mask(masksize) circle_src zoomout()];
     
-    % Label wafer
+    %% Label wafer with name and date
     o = setfontarialblack(1*mm);
     text_y = -12000;
-    p = writecenteredtext(['Horowitz ' date], 0, text_y);
-    scr = [scr o p];
+    p = writecenteredtext(['Horowitz ' date], 0, text_y); % name, date
+    p2 = writecenteredtext('McKay 530', 0, text_y-1.6*mm); % room number
+    scr = [scr o p p2];
     clear o p
     
-    % Specify chamber:
+    %% Specify chamber:
     x = -1500*um; % center
     y = 8200*um;  % center
     num_chambers = 1;
     chamber_diam = 650*um;
     width_of_spacer = 125*um;
     width_of_channel = 250*um;
-    channel_length = 0.8*cm;
-    newinfo = infostring(x,y,chamber_diam,width_of_spacer,width_of_channel,num_chambers,newline);
-    info = [info newinfo];
+    inlet_spacing = 2.2*cm;
     
     % draw a chamber with one input
-    o = draw_chamber_with_input_output(x,y, chamber_diam,width_of_spacer, width_of_channel, channel_length,num_chambers);
+    [o, device_width] = draw_chamber_with_input_output(x,y, chamber_diam,width_of_spacer, width_of_channel, inlet_spacing,num_chambers);
     scr = [scr o];
-    clear x y chamber_diam width_of_spacer width_of_channel channel_length newinfo num_chambers o
+    newinfo = infostring(x,y,chamber_diam,width_of_spacer,width_of_channel,num_chambers,inlet_spacing,device_width,newline);
+    info = [info newinfo];
+    clear x y chamber_diam width_of_spacer width_of_channel inlet_spacing newinfo num_chambers o device_width
     
-    % Specify chamber:
+    %% Specify chamber:
     x = -2200*um; % center
     y = -8000*um;  % center
     num_chambers = 5;
     chamber_diam = 10*um;
     width_of_spacer = 125*um;
     width_of_channel = 250*um;
-    channel_length = 0.8*cm;
-    newinfo = infostring(x,y,chamber_diam,width_of_spacer,width_of_channel,num_chambers,newline);
-    info = [info newinfo];
+    inlet_spacing = 2.2*cm;
     
     % draw a chamber with one input
-    o = draw_chamber_with_input_output(x,y, chamber_diam,width_of_spacer, width_of_channel, channel_length,num_chambers);
+    [o, device_width] = draw_chamber_with_input_output(x,y, chamber_diam,width_of_spacer, width_of_channel, inlet_spacing,num_chambers);
     scr = [scr o];
-    clear x y chamber_diam width_of_spacer width_of_channel channel_length newinfo num_chambers o
+    newinfo = infostring(x,y,chamber_diam,width_of_spacer,width_of_channel,num_chambers,inlet_spacing,device_width,newline);
+    info = [info newinfo];
+    clear x y chamber_diam width_of_spacer width_of_channel inlet_spacing newinfo num_chambers o device_width
 
-    % Specify chamber:
+    %% Specify chamber:
     x = 1000*um; % center
     y = 4500*um;  % center
     num_chambers = 2;
     chamber_diam = 2*650*um;
     width_of_spacer = 125*um;
     width_of_channel = 300*um;
-    channel_length = 0.8*cm;
-    newinfo = infostring(x,y,chamber_diam,width_of_spacer,width_of_channel,num_chambers,newline);
-    info = [info newinfo];
+    inlet_spacing = 2.2*cm;
     
     % draw a chamber with one input
-    o = draw_chamber_with_input_output(x,y, chamber_diam,width_of_spacer, width_of_channel, channel_length,num_chambers);
+    [o, device_width] = draw_chamber_with_input_output(x,y, chamber_diam,width_of_spacer, width_of_channel, inlet_spacing,num_chambers);
     scr = [scr o];
-    clear x y chamber_diam width_of_spacer width_of_channel channel_length newinfo num_chambers o
+    newinfo = infostring(x,y,chamber_diam,width_of_spacer,width_of_channel,num_chambers,inlet_spacing,device_width,newline);
+    info = [info newinfo];
+    clear x y chamber_diam width_of_spacer width_of_channel inlet_spacing newinfo num_chambers o device_width
 
-     % Specify chamber:
+    %% Specify chamber:
     x = 1000*um; % center
     y = -4000*um;  % center
     num_chambers = 1;
     chamber_diam = 3*650*um;
     width_of_spacer = 125*um;
     width_of_channel = 300*um;
-    channel_length = 0.8*cm;
-    newinfo = infostring(x,y,chamber_diam,width_of_spacer,width_of_channel,num_chambers,newline);
-    info = [info newinfo];
-    
+    inlet_spacing = 2.2*cm;
+   
     % draw a chamber with one input
-    o = draw_chamber_with_input_output(x,y, chamber_diam,width_of_spacer, width_of_channel, channel_length,num_chambers);
+    [o, device_width] = draw_chamber_with_input_output(x,y, chamber_diam,width_of_spacer, width_of_channel, inlet_spacing,num_chambers);
     scr = [scr o];
-    clear x y chamber_diam width_of_spacer width_of_channel channel_length newinfo num_chambers o
+    newinfo = infostring(x,y,chamber_diam,width_of_spacer,width_of_channel,num_chambers,inlet_spacing,device_width,newline);
+    info = [info newinfo];
+    clear x y chamber_diam width_of_spacer width_of_channel inlet_spacing newinfo num_chambers o device_width
 
-      % Specify chamber:
+    %% Specify chamber:
     x = -2500*um; % center
     y = 300*um;  % center
     num_chambers = 8;
     chamber_diam = 50*um;
     width_of_spacer = 125*um;
     width_of_channel = 250*um;
-    channel_length = 0.8*cm;
-    newinfo = infostring(x,y,chamber_diam,width_of_spacer,width_of_channel,num_chambers,newline);
-    info = [info newinfo];
+    inlet_spacing = 2.2*cm;
     
     % draw a chamber with one input
-    o = draw_chamber_with_input_output(x,y, chamber_diam,width_of_spacer, width_of_channel, channel_length,num_chambers);
+    [o, device_width] = draw_chamber_with_input_output(x,y, chamber_diam,width_of_spacer, width_of_channel, inlet_spacing,num_chambers);
     scr = [scr o];
-    clear x y chamber_diam width_of_spacer width_of_channel channel_length newinfo num_chambers o
+    newinfo = infostring(x,y,chamber_diam,width_of_spacer,width_of_channel,num_chambers,inlet_spacing,device_width,newline);
+    info = [info newinfo];
+    clear x y chamber_diam width_of_spacer width_of_channel inlet_spacing newinfo num_chambers o device_width
 
-         % Specify chamber:
+    %% Specify chamber:
     x = -1000*um; % center
     y = 11500*um;  % center
     num_chambers = 4;
     chamber_diam = 20*um;
     width_of_spacer = 125*um;
     width_of_channel = 250*um;
-    channel_length = 0.8*cm;
-    newinfo = infostring(x,y,chamber_diam,width_of_spacer,width_of_channel,num_chambers,newline);
-    info = [info newinfo];
+    inlet_spacing = 2.2*cm;
     
     % draw a chamber with one input
-    o = draw_chamber_with_input_output(x,y, chamber_diam,width_of_spacer, width_of_channel, channel_length,num_chambers);
+    [o, device_width] = draw_chamber_with_input_output(x,y, chamber_diam,width_of_spacer, width_of_channel, inlet_spacing,num_chambers);
     scr = [scr o];
-    clear x y chamber_diam width_of_spacer width_of_channel channel_length newinfo num_chambers o
+    newinfo = infostring(x,y,chamber_diam,width_of_spacer,width_of_channel,num_chambers,inlet_spacing,device_width,newline);
+    info = [info newinfo];
+    clear x y chamber_diam width_of_spacer width_of_channel inlet_spacing newinfo num_chambers o device_width
 
+    %% finish up and save text files
     scr = [scr zoomout()];
     
     fid = fopen(['mymask_' date '.scr'],'w');
@@ -132,10 +134,11 @@ function mask(varargin)
     fprintf(fid,'%s',info);
     fclose(fid);
     
-    scr
+    %% uncomment to display the script
+    %scr
 end
 
-function info = infostring(x,y,chamber_diam,width_of_spacer,width_of_channel,num_chambers,newline)
+function info = infostring(x,y,chamber_diam,width_of_spacer,width_of_channel,num_chambers,inlet_spacing,device_width,newline)
 % sample text:
 %  1 chamber at (-1500,8200) has diameter 650 um, width_of_spacer=125 um, width_of_channel=250 um.
     if num_chambers > 1
@@ -145,10 +148,10 @@ function info = infostring(x,y,chamber_diam,width_of_spacer,width_of_channel,num
         text1 = ' chamber at (';
         text2 = ') has diameter ';
     end
-    info = [num2str(num_chambers) text1 num2str(x) ',' num2str(y) text2 num2str(chamber_diam) ' um, width_of_spacer=' num2str(width_of_spacer) ' um, width_of_channel=' num2str(width_of_channel) ' um.' newline];
+    info = [num2str(num_chambers) text1 num2str(x) ',' num2str(y) text2 num2str(chamber_diam) ' um, width_of_spacer=' num2str(width_of_spacer) ' um, width_of_channel=' num2str(width_of_channel) ' um. Device width without channels is ' num2str(device_width) '. Inlet spacing is ' num2str(inlet_spacing) '.'  newline];
 end
 
-function [arc_left_x,arc_right_x,top_arc_y,outer_circle_radius,o] = draw_chamber(x,y, chamber_diam,width_of_spacer, width_of_channel, channel_length)
+function [arc_left_x,arc_right_x,top_arc_y,outer_circle_radius,o] = draw_chamber(x,y, chamber_diam,width_of_spacer, width_of_channel, inlet_spacing)
     % Calculations for chamber
     outer_circle_radius = chamber_diam/2 + width_of_spacer + width_of_channel;
     
@@ -156,17 +159,6 @@ function [arc_left_x,arc_right_x,top_arc_y,outer_circle_radius,o] = draw_chamber
     zoom_scr = zoom(x-outer_circle_radius, x+outer_circle_radius,y-outer_circle_radius,y+outer_circle_radius);
     chamber_scr = circ3(x,y,chamber_diam/2);
     spacer_scr = circ3(x,y,chamber_diam/2 + width_of_spacer);
-       
-    %channel_scr = circ3(x,y,outer_circle_radius);
-
-    
-%     % Calculate arc for channel with two inputs and two outputs
-%     arc_y = y-width_of_spacer/2-width_of_channel;
-%     top_arc_y = y+width_of_spacer/2+width_of_channel;
-%     arc_left_x = -sqrt(outer_circle_radius^2 - (arc_y - y)^2) +x;
-%     arc_right_x = sqrt(outer_circle_radius^2 - (arc_y - y)^2) +x;
-%     arc_center_y = y-outer_circle_radius;
-%     top_arc_center_y = y+outer_circle_radius;
 
     % Calculate arc for channel with one input and one output
     arc_y = y-width_of_channel/2;
@@ -179,10 +171,6 @@ function [arc_left_x,arc_right_x,top_arc_y,outer_circle_radius,o] = draw_chamber
     % Draw arc for channel
     bottom_arc_scr = arc(arc_left_x,arc_y,x,arc_center_y,arc_right_x,arc_y);
     top_arc_scr = arc(arc_left_x,top_arc_y,x,top_arc_center_y,arc_right_x,top_arc_y);
-
-    
-    % Calculate location of left side of spacer wall
-    %left_spacer_wall = x-(chamber_diam/2+width_of_spacer);
     
     o = [ zoom_scr chamber_scr spacer_scr bottom_arc_scr top_arc_scr zoomout() ];
 
@@ -190,12 +178,15 @@ end
 
 
 
-function o = draw_chamber_with_input_output(x,y, chamber_diam,width_of_spacer, width_of_channel, channel_length, num_chambers)   
+function [o,width_of_device_without_channels] = draw_chamber_with_input_output(x,y, chamber_diam,width_of_spacer, width_of_channel, inlet_spacing, num_chambers)   
+    um = 1;
+    outlet_diameter = 775*um;
+
     this_x = x;
     this_y = y;
     chamber_scr = [];
     for i=1:num_chambers
-        [this_arc_left_x,this_arc_right_x,top_arc_y,outer_circle_radius,this_chamber_scr] = draw_chamber(this_x,this_y, chamber_diam,width_of_spacer, width_of_channel, channel_length);
+        [this_arc_left_x,this_arc_right_x,top_arc_y,outer_circle_radius,this_chamber_scr] = draw_chamber(this_x,this_y, chamber_diam,width_of_spacer, width_of_channel, inlet_spacing);
         if i == 1
             arc_left_x = this_arc_left_x;
         end
@@ -205,6 +196,14 @@ function o = draw_chamber_with_input_output(x,y, chamber_diam,width_of_spacer, w
     end
     arc_right_x = this_arc_right_x;
     clear this_x this_y
+    
+    width_of_device_without_channels = arc_right_x - arc_left_x;
+    center_of_device_x = (arc_right_x + arc_left_x)/2;
+    
+    % use pythagorean theorem to figure out how long the channels need to be
+    inlet_subradius = sqrt((outlet_diameter/2)^2 - (width_of_channel/2)^2);
+    % inlet_spacing = inlet_subradius * 2 + channel_length * 2 + width_of_device_without_channels
+    channel_length = (inlet_spacing-2*inlet_subradius-width_of_device_without_channels)/2;
 
     % Draw rectangles for channel with one input and one output
     channel_left_scr = rectangle_minus_right_side(channel_length, width_of_channel, arc_left_x, top_arc_y);
@@ -212,16 +211,20 @@ function o = draw_chamber_with_input_output(x,y, chamber_diam,width_of_spacer, w
     
     a = [channel_left_scr channel_right_scr ];
     
+    % calculate outlet_center_coords
+    left_outlet_center_coords = [center_of_device_x-inlet_spacing/2 y];
+    right_outlet_center_coords = [center_of_device_x+inlet_spacing/2 y];
+    
     % left "outlet" (it doesn't need a filter)
     top_of_channel_coords = [arc_left_x-channel_length,top_arc_y];
     bottom_of_channel_coords = [arc_left_x-channel_length,top_arc_y-width_of_channel];
-    b = draw_outlet(top_of_channel_coords,bottom_of_channel_coords, true);
+    b = draw_short_outlet(left_outlet_center_coords,top_of_channel_coords,bottom_of_channel_coords, true);
     clear top_of_channel_coords  bottom_of_channel_coords
     
     % right outlet
     top_of_channel_coords = [arc_right_x + channel_length, top_arc_y];
     bottom_of_channel_coords = [arc_right_x + channel_length,top_arc_y-width_of_channel];
-    c = draw_outlet(top_of_channel_coords,bottom_of_channel_coords, false);
+    c = draw_short_outlet(right_outlet_center_coords,top_of_channel_coords,bottom_of_channel_coords, false);
     clear top_of_channel_coords  bottom_of_channel_coords
     
     o = [a chamber_scr b c];
@@ -262,6 +265,10 @@ end
 
 function o = setfontarialblack(height)
     o = sprintf('(command "-STYLE" "Standard" "Arial Black" "%g" "1" "0" "n" "n")\n',height);
+end
+
+function o = setfontarial(height)
+    o = sprintf('(command "-STYLE" "Standard" "Arial" "%g" "1" "0" "n" "n")\n',height);
 end
 
 function o = writecenteredtext(text,x,y)
@@ -366,7 +373,7 @@ end
 % channel coordinates are inputs. "left" is a boolean input that is true if
 % the outlet is to the left of the channel and falst if the outlet is to
 % the right of the channel.
-function o = draw_outlet(top_of_channel_coords,bottom_of_channel_coords, left)
+function o = draw_long_outlet(top_of_channel_coords,bottom_of_channel_coords, left)
     um = 1;
     
     outlet_height = 775*um;
@@ -408,6 +415,48 @@ function o = draw_outlet(top_of_channel_coords,bottom_of_channel_coords, left)
         coords2 = [27000,4000];
         from_coords = [26043,5737];
     else
+        coords1 = [32000,700];
+        coords2 = [34000,-1200];
+        from_coords = [33275,-294];
+    end
+    x = endpointx - from_coords(1);
+    y = endpointy - from_coords(2);
+    
+    f = copy_object(coords1,coords2,x,y);
+    clear coords1 coords2 from_coords x y
+    
+    o = [a b c d f];
+end
+
+function dist = distance(coordsA,coordsB)
+    dist = sqrt((coordsA(1)-coordsB(1))^2 + (coordsA(2)-coordsB(2))^2);
+end
+
+function o = draw_short_outlet(outlet_center_coords,top_of_channel_coords,bottom_of_channel_coords, left)
+    
+    outlet_radius_of_curvature = distance(outlet_center_coords, top_of_channel_coords);
+    
+    center_of_channel_coords = [(top_of_channel_coords(1)+bottom_of_channel_coords(1))/2,(top_of_channel_coords(2)+bottom_of_channel_coords(2))/2];
+    a = erase(center_of_channel_coords);
+    endpointy = center_of_channel_coords(2);
+    
+    % assuming horizontal outlet
+    if left
+        endpointx = outlet_center_coords(1) - outlet_radius_of_curvature;
+    else
+        endpointx = outlet_center_coords(1) + outlet_radius_of_curvature;
+    end
+  
+    % draw circular outlet
+     d = arc(top_of_channel_coords(1),top_of_channel_coords(2), endpointx,endpointy,bottom_of_channel_coords(1),bottom_of_channel_coords(2));
+    
+    % copy crown
+    clear coords1 coords2 from_coords x y
+    if left % I have a crown located at a specific location on my autocad drawing
+        coords1 = [24000,7400];
+        coords2 = [27000,4000];
+        from_coords = [26043,5737];
+    else
         coords1 = [28000,5000];
         coords2 = [32000,1400];
         from_coords = [30160,3120];
@@ -418,7 +467,7 @@ function o = draw_outlet(top_of_channel_coords,bottom_of_channel_coords, left)
     f = copy_object(coords1,coords2,x,y);
     clear coords1 coords2 from_coords x y
     
-    o = [a b c d f];
+    o = [a d f];
 end
 
 function o = pickbox1()
