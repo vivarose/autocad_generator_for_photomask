@@ -37,7 +37,7 @@ function mask(varargin)
     info = [info newinfo];
     
     % draw a chamber with one input
-    o = draw_one_input_chamber(x,y, chamber_diam,width_of_spacer, width_of_channel, channel_length,1);
+    o = draw_chamber_with_input_output(x,y, chamber_diam,width_of_spacer, width_of_channel, channel_length,1);
     scr = [scr o];
     clear x y chamber_diam width_of_spacer width_of_channel channel_length
     
@@ -52,7 +52,7 @@ function mask(varargin)
     info = [info newinfo];
     
     % draw a chamber with one input
-    o = draw_one_input_chamber(x,y, chamber_diam,width_of_spacer, width_of_channel, channel_length,5);
+    o = draw_chamber_with_input_output(x,y, chamber_diam,width_of_spacer, width_of_channel, channel_length,5);
     scr = [scr o];
     clear x y chamber_diam width_of_spacer width_of_channel channel_length
 
@@ -67,7 +67,7 @@ function mask(varargin)
     info = [info newinfo];
     
     % draw a chamber with one input
-    o = draw_one_input_chamber(x,y, chamber_diam,width_of_spacer, width_of_channel, channel_length,2);
+    o = draw_chamber_with_input_output(x,y, chamber_diam,width_of_spacer, width_of_channel, channel_length,2);
     scr = [scr o];
     clear x y chamber_diam width_of_spacer width_of_channel channel_length newinfo
 
@@ -82,7 +82,7 @@ function mask(varargin)
     info = [info newinfo];
     
     % draw a chamber with one input
-    o = draw_one_input_chamber(x,y, chamber_diam,width_of_spacer, width_of_channel, channel_length,1);
+    o = draw_chamber_with_input_output(x,y, chamber_diam,width_of_spacer, width_of_channel, channel_length,1);
     scr = [scr o];
     clear x y chamber_diam width_of_spacer width_of_channel channel_length newinfo
 
@@ -97,7 +97,7 @@ function mask(varargin)
     info = [info newinfo];
     
     % draw a chamber with one input
-    o = draw_one_input_chamber(x,y, chamber_diam,width_of_spacer, width_of_channel, channel_length,8);
+    o = draw_chamber_with_input_output(x,y, chamber_diam,width_of_spacer, width_of_channel, channel_length,8);
     scr = [scr o];
     clear x y chamber_diam width_of_spacer width_of_channel channel_length newinfo
 
@@ -112,7 +112,7 @@ function mask(varargin)
     info = [info newinfo];
     
     % draw a chamber with one input
-    o = draw_one_input_chamber(x,y, chamber_diam,width_of_spacer, width_of_channel, channel_length,4);
+    o = draw_chamber_with_input_output(x,y, chamber_diam,width_of_spacer, width_of_channel, channel_length,4);
     scr = [scr o];
     clear x y chamber_diam width_of_spacer width_of_channel channel_length newinfo
 
@@ -175,19 +175,7 @@ end
 
 
 
-function o = draw_one_input_chamber(x,y, chamber_diam,width_of_spacer, width_of_channel, channel_length, num_chambers)
-
-%     % Draw rectangle for channel with two inputs and two outputs
-        % channel_
-%     channel2_scr = rect_upper_right(channel_length, width_of_channel, arc_left_x, y-width_of_spacer/2);
-%         % inputs: width, height, x2, y2
-%         %   x2,y2  are the lower left corners of the rectangle
-       
-%     % Calculate coords of inner edge of rectangle for channel with two
-%     % inputs and two outputs
-%     rectangle_inner_x = arc_left_x;
-%     rectangle_halfway_y = y - width_of_spacer/2-width_of_channel/2;
-    
+function o = draw_chamber_with_input_output(x,y, chamber_diam,width_of_spacer, width_of_channel, channel_length, num_chambers)   
     this_x = x;
     this_y = y;
     chamber_scr = [];
