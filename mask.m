@@ -16,13 +16,13 @@ function mask(varargin)
     % Draw circle for the chip
     diam = masksize;
     circle_src = circ3(0,0,diam/2);
-    info = ['Wafer diameter is ' num2str(diam) ' um.\n'];
+    info = ['Wafer diameter is ' num2str(diam) ' um.' newline];
     scr = [ erase_mask(masksize) circle_src zoomout()];
     
     % Label wafer
     o = setfontarialblack(1*mm);
     text_y = -12000;
-    p = writecenteredtext('Horowitz 2015-06-30', 0, text_y);
+    p = writecenteredtext(['Horowitz ' date], 0, text_y);
     scr = [scr o p];
     clear o p
     
@@ -33,7 +33,7 @@ function mask(varargin)
     width_of_spacer = 125*um;
     width_of_channel = 250*um;
     channel_length = 0.8*cm;
-    newinfo = ['Chamber centered at (' num2str(x) ',' num2str(y) ') has diameter ' num2str(chamber_diam) ' um, width_of_spacer=' num2str(width_of_spacer) ' um, width_of_channel=' num2str(width_of_channel) ' um.'];
+    newinfo = infostring(x,y,chamber_diam,width_of_spacer,width_of_channel,newline);
     info = [info newinfo];
     
     % draw a chamber with one input
@@ -48,7 +48,7 @@ function mask(varargin)
     width_of_spacer = 125*um;
     width_of_channel = 250*um;
     channel_length = 0.8*cm;
-    newinfo = ['Chamber centered at (' num2str(x) ',' num2str(y) ') has diameter ' num2str(chamber_diam) ' um, width_of_spacer=' num2str(width_of_spacer) ' um, width_of_channel=' num2str(width_of_channel) ' um.'];
+    newinfo = infostring(x,y,chamber_diam,width_of_spacer,width_of_channel,newline);
     info = [info newinfo];
     
     % draw a chamber with one input
@@ -63,13 +63,13 @@ function mask(varargin)
     width_of_spacer = 125*um;
     width_of_channel = 300*um;
     channel_length = 0.8*cm;
-    newinfo = ['Chamber centered at (' num2str(x) ',' num2str(y) ') has diameter ' num2str(chamber_diam) ' um, width_of_spacer=' num2str(width_of_spacer) ' um, width_of_channel=' num2str(width_of_channel) ' um.'];
+    newinfo = infostring(x,y,chamber_diam,width_of_spacer,width_of_channel,newline);
     info = [info newinfo];
     
     % draw a chamber with one input
     o = draw_one_input_chamber(x,y, chamber_diam,width_of_spacer, width_of_channel, channel_length,2);
     scr = [scr o];
-    clear x y chamber_diam width_of_spacer width_of_channel channel_length
+    clear x y chamber_diam width_of_spacer width_of_channel channel_length newinfo
 
      % Specify chamber:
     x = 1000*um; % center
@@ -78,13 +78,13 @@ function mask(varargin)
     width_of_spacer = 125*um;
     width_of_channel = 300*um;
     channel_length = 0.8*cm;
-    newinfo = ['Chamber centered at (' num2str(x) ',' num2str(y) ') has diameter ' num2str(chamber_diam) ' um, width_of_spacer=' num2str(width_of_spacer) ' um, width_of_channel=' num2str(width_of_channel) ' um.'];
+    newinfo = infostring(x,y,chamber_diam,width_of_spacer,width_of_channel,newline);
     info = [info newinfo];
     
     % draw a chamber with one input
     o = draw_one_input_chamber(x,y, chamber_diam,width_of_spacer, width_of_channel, channel_length,1);
     scr = [scr o];
-    clear x y chamber_diam width_of_spacer width_of_channel channel_length
+    clear x y chamber_diam width_of_spacer width_of_channel channel_length newinfo
 
       % Specify chamber:
     x = -2500*um; % center
@@ -93,13 +93,13 @@ function mask(varargin)
     width_of_spacer = 125*um;
     width_of_channel = 250*um;
     channel_length = 0.8*cm;
-    newinfo = ['Chamber centered at (' num2str(x) ',' num2str(y) ') has diameter ' num2str(chamber_diam) ' um, width_of_spacer=' num2str(width_of_spacer) ' um, width_of_channel=' num2str(width_of_channel) ' um.'];
+    newinfo = infostring(x,y,chamber_diam,width_of_spacer,width_of_channel,newline);
     info = [info newinfo];
     
     % draw a chamber with one input
     o = draw_one_input_chamber(x,y, chamber_diam,width_of_spacer, width_of_channel, channel_length,8);
     scr = [scr o];
-    clear x y chamber_diam width_of_spacer width_of_channel channel_length
+    clear x y chamber_diam width_of_spacer width_of_channel channel_length newinfo
 
          % Specify chamber:
     x = -1000*um; % center
@@ -108,13 +108,13 @@ function mask(varargin)
     width_of_spacer = 125*um;
     width_of_channel = 250*um;
     channel_length = 0.8*cm;
-    newinfo = ['Chamber centered at (' num2str(x) ',' num2str(y) ') has diameter ' num2str(chamber_diam) ' um, width_of_spacer=' num2str(width_of_spacer) ' um, width_of_channel=' num2str(width_of_channel) ' um.'];
+    newinfo = infostring(x,y,chamber_diam,width_of_spacer,width_of_channel,newline);
     info = [info newinfo];
     
     % draw a chamber with one input
     o = draw_one_input_chamber(x,y, chamber_diam,width_of_spacer, width_of_channel, channel_length,4);
     scr = [scr o];
-    clear x y chamber_diam width_of_spacer width_of_channel channel_length
+    clear x y chamber_diam width_of_spacer width_of_channel channel_length newinfo
 
     scr = [scr zoomout()];
     
@@ -127,6 +127,10 @@ function mask(varargin)
     fclose(fid);
     
     scr
+end
+
+function info = infostring(x,y,chamber_diam,width_of_spacer,width_of_channel,newline)
+    info = ['Chamber centered at (' num2str(x) ',' num2str(y) ') has diameter ' num2str(chamber_diam) ' um, width_of_spacer=' num2str(width_of_spacer) ' um, width_of_channel=' num2str(width_of_channel) ' um.' newline];
 end
 
 function [arc_left_x,arc_right_x,top_arc_y,outer_circle_radius,o] = draw_chamber(x,y, chamber_diam,width_of_spacer, width_of_channel, channel_length)
