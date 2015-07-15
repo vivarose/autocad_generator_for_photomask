@@ -1,9 +1,9 @@
 function mask(varargin)
-    % units -- I'm working in microns.
-    in = 25400; % convert inches to um
-    cm = 10000; % convert cm to um
-    mm = 1000; % convert mm to um
-    um = 1; % convert microns to um
+    % units -- I'm working in mm.
+    in = 25.4; % convert inches to mm
+    cm = 10; % convert cm to mm
+    mm = 1; % convert mm to mm
+    um = 0.001; % convert microns to mm
     newline = 10; % Windows newline character
     
     % settings
