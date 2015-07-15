@@ -18,15 +18,22 @@ function mask(varargin)
     
     % calculate 
     top_sandwich_center = [bottom_sandwich_center(1) bottom_sandwich_center(2)+bottom_sandwich_size(2)+1*cm];
-    
+        
+    %% start with an empty slate
+    scr = erase_area(top_sandwich_center(2)+top_sandwich_size(2));
     
     %% Draw rectangles for the two devices
+    % draw both sandwiches: width, height, center x, center y.
+    bottom_sandwich_scr = rect2(bottom_sandwich_size(1), bottom_sandwich_size(2), bottom_sandwich_center);
+    top_sandwich_scr = rect2(top_sandwich_size(1), top_sandwich_size(2), top_sandwich_center);
+
+    scr = [ scr bottom_sandwich_scr top_sandwich_scr zoomout() ];
     
-    info = [''];
-    scr = [ erase_mask(masksize) draw_rectangles_scr zoomout()];
+    %% Draw inlet & outlet in top sandwich
     
-    info = ['Horowitz ' date '. McKay 530.' newline info];
+    %% Draw screw holes in top and bottom sandwiches
     
+    %% Draw window in bottom sandwich    
 
     %% finish up and save text files
     scr = [scr zoomout()];
@@ -35,12 +42,12 @@ function mask(varargin)
     fprintf(fid,'%s',scr);
     fclose(fid);
     
-    fid = fopen(['clamp_info_' date '.txt'],'w');
-    fprintf(fid,'%s',info);
-    fclose(fid);
+    %fid = fopen(['clamp_info_' date '.txt'],'w');
+    %fprintf(fid,'%s',info);
+    %fclose(fid);
     
     %% uncomment to display the script
-    %scr
+    scr
 end
 
 
@@ -162,9 +169,9 @@ function o = move_object(coords,x,y)
     %o = [zoomin(coords) o zoomout];
 end
 
-function o = erase_mask(masksize)
+function o = erase_area(areasize)
     epsilon = 10;
-    r = masksize/2+epsilon;
+    r = areasize/2+epsilon;
     o = sprintf('ERASE\n%g,%g\n%g,%g\n\n', -r,r,r,-r);
 end
 
