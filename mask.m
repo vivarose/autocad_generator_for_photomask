@@ -6,27 +6,30 @@ function mask(varargin)
     um = 0.001; % convert microns to mm
     newline = 10; % Windows newline character
     
+    % in autocad: use F9 or ("commandline") to display the commandline
+    % use the "units" command to set the units
+    
     % settings
     bottom_sandwich_center = [0*mm 0*mm]; % x, y
-    bottom_sandwich_size = [3*in 2*in]; % length, height
-    top_sandwich_size = [3*in 1*in]; % length, height
-    distance_between_screws = [2.5*in 0.75*in]; % x, y
+    bottom_sandwich_size = [3*in 2.3*in]; % length, height
+    top_sandwich_size = [3*in 1.35*in]; % length, height
+    distance_between_screws = [2.4*in 0.75*in]; % x, y
     inlet_spacing = 22*mm;
     inlet_size = 2.5*mm;
-    bottom_sandwich_window_size = [15*mm, 10*mm]; % x, y
+    bottom_sandwich_window_size = [30*mm, 15*mm]; % x, y
     clearance_screw_diameter = 0.25*in;
     tapped_screw_diameter = 0.2010*in;
     
     % calculate 
-    top_sandwich_center = [bottom_sandwich_center(1) bottom_sandwich_center(2)+bottom_sandwich_size(2)+1*cm];
+    top_sandwich_center = [bottom_sandwich_center(1) bottom_sandwich_center(2)+bottom_sandwich_size(2)/2+top_sandwich_size(2)/2+1*cm];
         
     %% start with an empty slate
-    scr = erase_area(top_sandwich_center(2)+top_sandwich_size(2));
+    scr = erase_area(top_sandwich_center(2)+top_sandwich_size(2)*5);
     
     %% Draw rectangles for the two devices
     % draw both sandwiches: width, height, center x, center y.
-    bottom_sandwich_scr = rect2(bottom_sandwich_size(1), bottom_sandwich_size(2), bottom_sandwich_center);
-    top_sandwich_scr = rect2(top_sandwich_size(1), top_sandwich_size(2), top_sandwich_center);
+    bottom_sandwich_scr = rect2(bottom_sandwich_size(1), bottom_sandwich_size(2), bottom_sandwich_center(1),bottom_sandwich_center(2));
+    top_sandwich_scr = rect2(top_sandwich_size(1), top_sandwich_size(2), top_sandwich_center(1), top_sandwich_center(2));
 
     scr = [ scr bottom_sandwich_scr top_sandwich_scr zoomout() ];
     
@@ -55,9 +58,11 @@ function mask(varargin)
     bottom_screw_scr = draw_four_holes(left_x, right_x, bottom_sandwich_lower_y, bottom_sandwich_upper_y, tapped_screw_diameter);
     top_screw_scr = draw_four_holes(left_x, right_x, top_sandwich_lower_y, top_sandwich_upper_y, clearance_screw_diameter);
     
-    scr = [scr bottom_screw_scr top_screw_scr]
+    scr = [scr bottom_screw_scr top_screw_scr];
     
-    %% Draw window in bottom sandwich    
+    %% Draw window in bottom sandwich
+    window_scr = rect2(bottom_sandwich_window_size(1), bottom_sandwich_window_size(2), bottom_sandwich_center(1),bottom_sandwich_center(2));
+    scr = [scr window_scr];
 
     %% finish up and save text files
     scr = [scr zoomout()];
@@ -71,7 +76,7 @@ function mask(varargin)
     %fclose(fid);
     
     %% uncomment to display the script
-    scr
+    %scr
 end
 
 function o = draw_four_holes(left_x, right_x, lower_y, upper_y, diameter)
@@ -165,15 +170,7 @@ function o = rect_upper_left(w,h,x1,y2)
 end
 
 % width, height, center x, center y
-function o = rect2(w,h,varargin)
-    S.pos = [0 0];
-    for k=1:2:length(varargin); 
-        if (isfield(S,lower(varargin{k}))); 
-            S.(lower(varargin{k})) = varargin{k+1}; 
-        end; 
-    end;
-    x = S.pos(1);
-    y = S.pos(2);
+function o = rect2(w,h,x,y)
     o = sprintf('(command "rectangle" "%g,%g" "%g,%g")\n',x-w/2,y-h/2,x+w/2,y+h/2);
 end
 
