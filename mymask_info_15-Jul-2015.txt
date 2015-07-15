@@ -1,0 +1,8 @@
+Horowitz 15-Jul-2015. McKay 530.
+Wafer diameter is 38 mm.
+1 chamber at (-1500,8200) has diameter 650 um, width_of_spacer=125 um, width_of_channel=250 um. Device width without channels is 1.3775 mm. Inlet spacing is 22 mm.
+5 chambers with first at (-2200,-8000) each have diameter 10 um, width_of_spacer=125 um, width_of_channel=250 um. Device width without channels is 3.5885 mm. Inlet spacing is 22 mm.
+2 chambers with first at (1000,4500) each have diameter 1300 um, width_of_spacer=125 um, width_of_channel=300 um. Device width without channels is 4.2579 mm. Inlet spacing is 22 mm.
+1 chamber at (1000,-4000) has diameter 1950 um, width_of_spacer=125 um, width_of_channel=300 um. Device width without channels is 2.7839 mm. Inlet spacing is 22 mm.
+12 chambers with first at (-4500,300) each have diameter 50 um, width_of_spacer=125 um, width_of_channel=250 um. Device width without channels is 9.1192 mm. Inlet spacing is 22 mm.
+4 chambers with first at (-1000,11500) each have diameter 20 um, width_of_spacer=125 um, width_of_channel=250 um. Device width without channels is 2.9131 mm. Inlet spacing is 22 mm.

@@ -21,7 +21,7 @@ function mask(varargin)
     
     %% Label wafer with name and date
     o = setfontarialblack(1*mm);
-    text_y = -12000;
+    text_y = -12000*um;
     p = writecenteredtext(['Horowitz ' date], 0, text_y); % name, date
     p2 = writecenteredtext('McKay 530', 0, text_y-1.6*mm); % room number
     scr = [scr o p p2];
