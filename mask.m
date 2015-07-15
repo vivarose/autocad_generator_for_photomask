@@ -193,8 +193,9 @@ function [o,width_of_device_without_channels] = draw_chamber_with_input_output(x
         end
         
         if label
-            font_scr = setfontarial(100*um);
-            label_scr = writecenteredtext(num2str(i), this_x, this_y-outer_circle_radius-1.7*width_of_channel); 
+            label_height = 100*um;
+            font_scr = setfontarial(label_height);
+            label_scr = writecenteredtext(num2str(i), this_x, this_y-outer_circle_radius-width_of_channel-label_height); 
             
             this_chamber_scr = [this_chamber_scr font_scr label_scr];
         end
