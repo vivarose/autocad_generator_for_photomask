@@ -93,9 +93,9 @@ function mask(varargin)
     clear x y chamber_diam width_of_spacer width_of_channel newinfo num_chambers o device_width label
 
     %% Specify chamber:
-    x = -2500*um; % center
+    x = -4500*um; % center
     y = 300*um;  % center
-    num_chambers = 8;
+    num_chambers = 12;
     label = true;
     chamber_diam = 50*um;
     width_of_spacer = 125*um;
@@ -142,6 +142,8 @@ end
 function info = infostring(x,y,chamber_diam,width_of_spacer,width_of_channel,num_chambers,inlet_spacing,device_width,newline)
 % sample text:
 %  1 chamber at (-1500,8200) has diameter 650 um, width_of_spacer=125 um, width_of_channel=250 um.
+    mm = 1000;
+
     if num_chambers > 1
         text1 = ' chambers with first at (';
         text2 = ') each have diameter ';
@@ -149,7 +151,7 @@ function info = infostring(x,y,chamber_diam,width_of_spacer,width_of_channel,num
         text1 = ' chamber at (';
         text2 = ') has diameter ';
     end
-    info = [num2str(num_chambers) text1 num2str(x) ',' num2str(y) text2 num2str(chamber_diam) ' um, width_of_spacer=' num2str(width_of_spacer) ' um, width_of_channel=' num2str(width_of_channel) ' um. Device width without channels is ' num2str(device_width) '. Inlet spacing is ' num2str(inlet_spacing) '.'  newline];
+    info = [num2str(num_chambers) text1 num2str(x) ',' num2str(y) text2 num2str(chamber_diam) ' um, width_of_spacer=' num2str(width_of_spacer) ' um, width_of_channel=' num2str(width_of_channel) ' um. Device width without channels is ' num2str(device_width/mm) ' mm. Inlet spacing is ' num2str(inlet_spacing/mm) ' mm.'  newline];
 end
 
 function [arc_left_x,arc_right_x,top_arc_y,outer_circle_radius,o] = draw_chamber(x,y, chamber_diam,width_of_spacer, width_of_channel, inlet_spacing)
@@ -185,7 +187,10 @@ function [o,width_of_device_without_channels] = draw_chamber_with_input_output(x
 
     this_x = x;
     this_y = y;
-    chamber_scr = [];
+	label_height = 100*um;
+	font_scr = setfontarial(label_height);
+	chamber_scr = [font_scr];
+
     for i=1:num_chambers
         [this_arc_left_x,this_arc_right_x,top_arc_y,outer_circle_radius,this_chamber_scr] = draw_chamber(this_x,this_y, chamber_diam,width_of_spacer, width_of_channel, inlet_spacing);
         if i == 1
@@ -193,11 +198,8 @@ function [o,width_of_device_without_channels] = draw_chamber_with_input_output(x
         end
         
         if label
-            label_height = 100*um;
-            font_scr = setfontarial(label_height);
             label_scr = writecenteredtext(num2str(i), this_x, this_y-outer_circle_radius-width_of_channel-label_height); 
-            
-            this_chamber_scr = [this_chamber_scr font_scr label_scr];
+            this_chamber_scr = [this_chamber_scr  label_scr];
         end
         
         % advance to the next chamber

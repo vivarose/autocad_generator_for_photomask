@@ -1,0 +1,369 @@
+ERASE
+-19010,19010
+19010,-19010
+
+(command "circle" "0,0" "19000")
+(command "zoom" "Extents")
+(command "-STYLE" "Standard" "Arial Black" "1000" "1" "0" "n" "n")
+(command "text" "Justify" "Center" "0,-12000" "0" "Horowitz 14-Jul-2015")
+(command "text" "Justify" "Center" "0,-13600" "0" "McKay 530")
+(command "rectangle" "-12133.2,8075" "-2188.75,8325")
+(command "explode" "-2188.75,8200")
+(command "zoom" "window" "-2189.05,8199.7" "-2188.35,8200.4")
+(command "erase" "-2188.75,8200" "SI")
+(command "zoom" "Extents")
+(command "rectangle" "-811.251,8075" "9133.21,8325")
+(command "explode" "-811.251,8200")
+(command "zoom" "window" "-811.551,8199.7" "-810.851,8200.4")
+(command "erase" "-811.251,8200" "SI")
+(command "zoom" "Extents")
+(command "-STYLE" "Standard" "Arial" "100" "1" "0" "n" "n")
+(command "zoom" "window" "-2200,-800" "7500,8900")
+(command "circle" "-1500,8200" "325")
+(command "circle" "-1500,8200" "450")
+(command "arc"  "-2188.75,8075" "-1500,7500" "-811.251,8075")
+(command "arc"  "-2188.75,8325" "-1500,8900" "-811.251,8325")
+(command "zoom" "Extents")
+(command "zoom" "window" "-12133.5,8199.7" "-12132.8,8200.4")
+(command "erase" "-12133.2,8200" "SI")
+(command "zoom" "Extents")
+(command "arc"  "-12133.2,8325" "-12887.5,8200" "-12133.2,8075")
+COPY
+24000,7400
+27000,4000
+
+-38930.5,2463
+
+(command "zoom" "window" "9132.91,8199.7" "9133.61,8200.4")
+(command "erase" "9133.21,8200" "SI")
+(command "zoom" "Extents")
+(command "arc"  "9133.21,8325" "9887.5,8200" "9133.21,8075")
+COPY
+32000,700
+34000,-1200
+
+-23367.5,8494
+
+(command "rectangle" "-11397.8,-8125" "-2558.85,-7875")
+(command "explode" "-2558.85,-8000")
+(command "zoom" "window" "-2559.15,-8000.3" "-2558.45,-7999.6")
+(command "erase" "-2558.85,-8000" "SI")
+(command "zoom" "Extents")
+(command "rectangle" "1029.67,-8125" "9868.62,-7875")
+(command "explode" "1029.67,-8000")
+(command "zoom" "window" "1029.37,-8000.3" "1030.07,-7999.6")
+(command "erase" "1029.67,-8000" "SI")
+(command "zoom" "Extents")
+(command "-STYLE" "Standard" "Arial" "100" "1" "0" "n" "n")
+(command "zoom" "window" "-2580,-1820" "-8380,-7620")
+(command "circle" "-2200,-8000" "5")
+(command "circle" "-2200,-8000" "130")
+(command "arc"  "-2558.85,-8125" "-2200,-8380" "-1841.15,-8125")
+(command "arc"  "-2558.85,-7875" "-2200,-7620" "-1841.15,-7875")
+(command "zoom" "Extents")
+(command "text" "Justify" "Center" "-2200,-8730" "0" "1")
+(command "zoom" "window" "-1862.3,-1102.3" "-8380,-7620")
+(command "circle" "-1482.3,-8000" "5")
+(command "circle" "-1482.3,-8000" "130")
+(command "arc"  "-1841.15,-8125" "-1482.3,-8380" "-1123.44,-8125")
+(command "arc"  "-1841.15,-7875" "-1482.3,-7620" "-1123.44,-7875")
+(command "zoom" "Extents")
+(command "text" "Justify" "Center" "-1482.3,-8730" "0" "2")
+(command "zoom" "window" "-1144.59,-384.591" "-8380,-7620")
+(command "circle" "-764.591,-8000" "5")
+(command "circle" "-764.591,-8000" "130")
+(command "arc"  "-1123.44,-8125" "-764.591,-8380" "-405.738,-8125")
+(command "arc"  "-1123.44,-7875" "-764.591,-7620" "-405.738,-7875")
+(command "zoom" "Extents")
+(command "text" "Justify" "Center" "-764.591,-8730" "0" "3")
+(command "zoom" "window" "-426.886,333.114" "-8380,-7620")
+(command "circle" "-46.886,-8000" "5")
+(command "circle" "-46.886,-8000" "130")
+(command "arc"  "-405.738,-8125" "-46.886,-8380" "311.966,-8125")
+(command "arc"  "-405.738,-7875" "-46.886,-7620" "311.966,-7875")
+(command "zoom" "Extents")
+(command "text" "Justify" "Center" "-46.886,-8730" "0" "4")
+(command "zoom" "window" "290.819,1050.82" "-8380,-7620")
+(command "circle" "670.819,-8000" "5")
+(command "circle" "670.819,-8000" "130")
+(command "arc"  "311.966,-8125" "670.819,-8380" "1029.67,-8125")
+(command "arc"  "311.966,-7875" "670.819,-7620" "1029.67,-7875")
+(command "zoom" "Extents")
+(command "text" "Justify" "Center" "670.819,-8730" "0" "5")
+(command "zoom" "window" "-11398.1,-8000.3" "-11397.4,-7999.6")
+(command "erase" "-11397.8,-8000" "SI")
+(command "zoom" "Extents")
+(command "arc"  "-11397.8,-7875" "-12152.1,-8000" "-11397.8,-8125")
+COPY
+24000,7400
+27000,4000
+
+-38195.1,-13737
+
+(command "zoom" "window" "9868.32,-8000.3" "9869.02,-7999.6")
+(command "erase" "9868.62,-8000" "SI")
+(command "zoom" "Extents")
+(command "arc"  "9868.62,-7875" "10622.9,-8000" "9868.62,-8125")
+COPY
+32000,700
+34000,-1200
+
+-22632.1,-7706
+
+(command "rectangle" "-8578.23,4350" "-64.4834,4650")
+(command "explode" "-64.4834,4500")
+(command "zoom" "window" "-64.7834,4499.7" "-64.0834,4500.4")
+(command "erase" "-64.4834,4500" "SI")
+(command "zoom" "Extents")
+(command "rectangle" "4193.45,4350" "12707.2,4650")
+(command "explode" "4193.45,4500")
+(command "zoom" "window" "4193.15,4499.7" "4193.85,4500.4")
+(command "erase" "4193.45,4500" "SI")
+(command "zoom" "Extents")
+(command "-STYLE" "Standard" "Arial" "100" "1" "0" "n" "n")
+(command "zoom" "window" "-75,2075" "3425,5575")
+(command "circle" "1000,4500" "650")
+(command "circle" "1000,4500" "775")
+(command "arc"  "-64.4834,4350" "1000,3425" "2064.48,4350")
+(command "arc"  "-64.4834,4650" "1000,5575" "2064.48,4650")
+(command "zoom" "Extents")
+(command "text" "Justify" "Center" "1000,3025" "0" "1")
+(command "zoom" "window" "2053.97,4203.97" "3425,5575")
+(command "circle" "3128.97,4500" "650")
+(command "circle" "3128.97,4500" "775")
+(command "arc"  "2064.48,4350" "3128.97,3425" "4193.45,4350")
+(command "arc"  "2064.48,4650" "3128.97,5575" "4193.45,4650")
+(command "zoom" "Extents")
+(command "text" "Justify" "Center" "3128.97,3025" "0" "2")
+(command "zoom" "window" "-8578.53,4499.7" "-8577.83,4500.4")
+(command "erase" "-8578.23,4500" "SI")
+(command "zoom" "Extents")
+(command "arc"  "-8578.23,4650" "-9323.02,4500" "-8578.23,4350")
+COPY
+24000,7400
+27000,4000
+
+-35366,-1237
+
+(command "zoom" "window" "12706.9,4499.7" "12707.6,4500.4")
+(command "erase" "12707.2,4500" "SI")
+(command "zoom" "Extents")
+(command "arc"  "12707.2,4650" "13452,4500" "12707.2,4350")
+COPY
+32000,700
+34000,-1200
+
+-19803,4794
+
+(command "rectangle" "-9642.71,-4150" "-391.941,-3850")
+(command "explode" "-391.941,-4000")
+(command "zoom" "window" "-392.241,-4000.3" "-391.541,-3999.6")
+(command "erase" "-391.941,-4000" "SI")
+(command "zoom" "Extents")
+(command "rectangle" "2391.94,-4150" "11642.7,-3850")
+(command "explode" "2391.94,-4000")
+(command "zoom" "window" "2391.64,-4000.3" "2392.34,-3999.6")
+(command "erase" "2391.94,-4000" "SI")
+(command "zoom" "Extents")
+(command "-STYLE" "Standard" "Arial" "100" "1" "0" "n" "n")
+(command "zoom" "window" "-400,2400" "-5400,-2600")
+(command "circle" "1000,-4000" "975")
+(command "circle" "1000,-4000" "1100")
+(command "arc"  "-391.941,-4150" "1000,-5400" "2391.94,-4150")
+(command "arc"  "-391.941,-3850" "1000,-2600" "2391.94,-3850")
+(command "zoom" "Extents")
+(command "zoom" "window" "-9643.01,-4000.3" "-9642.31,-3999.6")
+(command "erase" "-9642.71,-4000" "SI")
+(command "zoom" "Extents")
+(command "arc"  "-9642.71,-3850" "-10387.5,-4000" "-9642.71,-4150")
+COPY
+24000,7400
+27000,4000
+
+-36430.5,-9737
+
+(command "zoom" "window" "11642.4,-4000.3" "11643.1,-3999.6")
+(command "erase" "11642.7,-4000" "SI")
+(command "zoom" "Extents")
+(command "arc"  "11642.7,-3850" "12387.5,-4000" "11642.7,-4150")
+COPY
+32000,700
+34000,-1200
+
+-20867.5,-3706
+
+(command "rectangle" "-10953.6,175" "-4879.97,425")
+(command "explode" "-4879.97,300")
+(command "zoom" "window" "-4880.27,299.7" "-4879.57,300.4")
+(command "erase" "-4879.97,300" "SI")
+(command "zoom" "Extents")
+(command "rectangle" "4239.24,175" "10312.9,425")
+(command "explode" "4239.24,300")
+(command "zoom" "window" "4238.94,299.7" "4239.64,300.4")
+(command "erase" "4239.24,300" "SI")
+(command "zoom" "Extents")
+(command "-STYLE" "Standard" "Arial" "100" "1" "0" "n" "n")
+(command "zoom" "window" "-4900,-4100" "-100,700")
+(command "circle" "-4500,300" "25")
+(command "circle" "-4500,300" "150")
+(command "arc"  "-4879.97,175" "-4500,-100" "-4120.03,175")
+(command "arc"  "-4879.97,425" "-4500,700" "-4120.03,425")
+(command "zoom" "Extents")
+(command "text" "Justify" "Center" "-4500,-450" "0" "1")
+(command "zoom" "window" "-4140.07,-3340.07" "-100,700")
+(command "circle" "-3740.07,300" "25")
+(command "circle" "-3740.07,300" "150")
+(command "arc"  "-4120.03,175" "-3740.07,-100" "-3360.1,175")
+(command "arc"  "-4120.03,425" "-3740.07,700" "-3360.1,425")
+(command "zoom" "Extents")
+(command "text" "Justify" "Center" "-3740.07,-450" "0" "2")
+(command "zoom" "window" "-3380.13,-2580.13" "-100,700")
+(command "circle" "-2980.13,300" "25")
+(command "circle" "-2980.13,300" "150")
+(command "arc"  "-3360.1,175" "-2980.13,-100" "-2600.16,175")
+(command "arc"  "-3360.1,425" "-2980.13,700" "-2600.16,425")
+(command "zoom" "Extents")
+(command "text" "Justify" "Center" "-2980.13,-450" "0" "3")
+(command "zoom" "window" "-2620.2,-1820.2" "-100,700")
+(command "circle" "-2220.2,300" "25")
+(command "circle" "-2220.2,300" "150")
+(command "arc"  "-2600.16,175" "-2220.2,-100" "-1840.23,175")
+(command "arc"  "-2600.16,425" "-2220.2,700" "-1840.23,425")
+(command "zoom" "Extents")
+(command "text" "Justify" "Center" "-2220.2,-450" "0" "4")
+(command "zoom" "window" "-1860.26,-1060.26" "-100,700")
+(command "circle" "-1460.26,300" "25")
+(command "circle" "-1460.26,300" "150")
+(command "arc"  "-1840.23,175" "-1460.26,-100" "-1080.3,175")
+(command "arc"  "-1840.23,425" "-1460.26,700" "-1080.3,425")
+(command "zoom" "Extents")
+(command "text" "Justify" "Center" "-1460.26,-450" "0" "5")
+(command "zoom" "window" "-1100.33,-300.329" "-100,700")
+(command "circle" "-700.329,300" "25")
+(command "circle" "-700.329,300" "150")
+(command "arc"  "-1080.3,175" "-700.329,-100" "-320.362,175")
+(command "arc"  "-1080.3,425" "-700.329,700" "-320.362,425")
+(command "zoom" "Extents")
+(command "text" "Justify" "Center" "-700.329,-450" "0" "6")
+(command "zoom" "window" "-340.395,459.605" "-100,700")
+(command "circle" "59.6052,300" "25")
+(command "circle" "59.6052,300" "150")
+(command "arc"  "-320.362,175" "59.6052,-100" "439.572,175")
+(command "arc"  "-320.362,425" "59.6052,700" "439.572,425")
+(command "zoom" "Extents")
+(command "text" "Justify" "Center" "59.6052,-450" "0" "7")
+(command "zoom" "window" "419.539,1219.54" "-100,700")
+(command "circle" "819.539,300" "25")
+(command "circle" "819.539,300" "150")
+(command "arc"  "439.572,175" "819.539,-100" "1199.51,175")
+(command "arc"  "439.572,425" "819.539,700" "1199.51,425")
+(command "zoom" "Extents")
+(command "text" "Justify" "Center" "819.539,-450" "0" "8")
+(command "zoom" "window" "1179.47,1979.47" "-100,700")
+(command "circle" "1579.47,300" "25")
+(command "circle" "1579.47,300" "150")
+(command "arc"  "1199.51,175" "1579.47,-100" "1959.44,175")
+(command "arc"  "1199.51,425" "1579.47,700" "1959.44,425")
+(command "zoom" "Extents")
+(command "text" "Justify" "Center" "1579.47,-450" "0" "9")
+(command "zoom" "window" "1939.41,2739.41" "-100,700")
+(command "circle" "2339.41,300" "25")
+(command "circle" "2339.41,300" "150")
+(command "arc"  "1959.44,175" "2339.41,-100" "2719.37,175")
+(command "arc"  "1959.44,425" "2339.41,700" "2719.37,425")
+(command "zoom" "Extents")
+(command "text" "Justify" "Center" "2339.41,-450" "0" "10")
+(command "zoom" "window" "2699.34,3499.34" "-100,700")
+(command "circle" "3099.34,300" "25")
+(command "circle" "3099.34,300" "150")
+(command "arc"  "2719.37,175" "3099.34,-100" "3479.31,175")
+(command "arc"  "2719.37,425" "3099.34,700" "3479.31,425")
+(command "zoom" "Extents")
+(command "text" "Justify" "Center" "3099.34,-450" "0" "11")
+(command "zoom" "window" "3459.28,4259.28" "-100,700")
+(command "circle" "3859.28,300" "25")
+(command "circle" "3859.28,300" "150")
+(command "arc"  "3479.31,175" "3859.28,-100" "4239.24,175")
+(command "arc"  "3479.31,425" "3859.28,700" "4239.24,425")
+(command "zoom" "Extents")
+(command "text" "Justify" "Center" "3859.28,-450" "0" "12")
+(command "zoom" "window" "-10953.9,299.7" "-10953.2,300.4")
+(command "erase" "-10953.6,300" "SI")
+(command "zoom" "Extents")
+(command "arc"  "-10953.6,425" "-11707.9,300" "-10953.6,175")
+COPY
+24000,7400
+27000,4000
+
+-37750.9,-5437
+
+(command "zoom" "window" "10312.6,299.7" "10313.3,300.4")
+(command "erase" "10312.9,300" "SI")
+(command "zoom" "Extents")
+(command "arc"  "10312.9,425" "11067.1,300" "10312.9,175")
+COPY
+32000,700
+34000,-1200
+
+-22187.9,594
+
+(command "rectangle" "-10540.8,11375" "-1364.14,11625")
+(command "explode" "-1364.14,11500")
+(command "zoom" "window" "-1364.44,11499.7" "-1363.74,11500.4")
+(command "erase" "-1364.14,11500" "SI")
+(command "zoom" "Extents")
+(command "rectangle" "1549,11375" "10725.6,11625")
+(command "explode" "1549,11500")
+(command "zoom" "window" "1548.7,11499.7" "1549.4,11500.4")
+(command "erase" "1549,11500" "SI")
+(command "zoom" "Extents")
+(command "-STYLE" "Standard" "Arial" "100" "1" "0" "n" "n")
+(command "zoom" "window" "-1385,-615" "11115,11885")
+(command "circle" "-1000,11500" "10")
+(command "circle" "-1000,11500" "135")
+(command "arc"  "-1364.14,11375" "-1000,11115" "-635.857,11375")
+(command "arc"  "-1364.14,11625" "-1000,11885" "-635.857,11625")
+(command "zoom" "Extents")
+(command "text" "Justify" "Center" "-1000,10765" "0" "1")
+(command "zoom" "window" "-656.714,113.286" "11115,11885")
+(command "circle" "-271.714,11500" "10")
+(command "circle" "-271.714,11500" "135")
+(command "arc"  "-635.857,11375" "-271.714,11115" "92.4285,11375")
+(command "arc"  "-635.857,11625" "-271.714,11885" "92.4285,11625")
+(command "zoom" "Extents")
+(command "text" "Justify" "Center" "-271.714,10765" "0" "2")
+(command "zoom" "window" "71.5713,841.571" "11115,11885")
+(command "circle" "456.571,11500" "10")
+(command "circle" "456.571,11500" "135")
+(command "arc"  "92.4285,11375" "456.571,11115" "820.714,11375")
+(command "arc"  "92.4285,11625" "456.571,11885" "820.714,11625")
+(command "zoom" "Extents")
+(command "text" "Justify" "Center" "456.571,10765" "0" "3")
+(command "zoom" "window" "799.857,1569.86" "11115,11885")
+(command "circle" "1184.86,11500" "10")
+(command "circle" "1184.86,11500" "135")
+(command "arc"  "820.714,11375" "1184.86,11115" "1549,11375")
+(command "arc"  "820.714,11625" "1184.86,11885" "1549,11625")
+(command "zoom" "Extents")
+(command "text" "Justify" "Center" "1184.86,10765" "0" "4")
+(command "zoom" "window" "-10541.1,11499.7" "-10540.4,11500.4")
+(command "erase" "-10540.8,11500" "SI")
+(command "zoom" "Extents")
+(command "arc"  "-10540.8,11625" "-11295.1,11500" "-10540.8,11375")
+COPY
+24000,7400
+27000,4000
+
+-37338.1,5763
+
+(command "zoom" "window" "10725.3,11499.7" "10726,11500.4")
+(command "erase" "10725.6,11500" "SI")
+(command "zoom" "Extents")
+(command "arc"  "10725.6,11625" "11479.9,11500" "10725.6,11375")
+COPY
+32000,700
+34000,-1200
+
+-21775.1,11794
+
+(command "zoom" "Extents")
