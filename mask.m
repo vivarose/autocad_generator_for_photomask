@@ -12,6 +12,7 @@ function mask(varargin)
     top_sandwich_size = [3*in 1*in]; % length, height
     distance_between_screws = [2.5*in 0.75*in]; % x, y
     inlet_spacing = 22*mm;
+    inlet_size = 2.5*mm;
     bottom_sandwich_window_size = [15*mm, 10*mm]; % x, y
     clearance_screw_diameter = 0.25*in;
     tapped_screw_diameter = 0.2010*in;
@@ -30,8 +31,19 @@ function mask(varargin)
     scr = [ scr bottom_sandwich_scr top_sandwich_scr zoomout() ];
     
     %% Draw inlet & outlet in top sandwich
+    % circ3: draw a circle centered at (x,y) with radius r.
+    % left inlet hole:
+    left_x = top_sandwich_center(1) - inlet_spacing/2;
+    right_x = top_sandwich_center(1) + inlet_spacing/2;
+    y = top_sandwich_center(2);
+    left_inlet = circ3(left_x,y,inlet_size/2);
+    right_inlet = circ3(right_x,y,inlet_size/2);
+    
+    scr = [scr left_inlet right_inlet];
+    clear left_x right_x y
     
     %% Draw screw holes in top and bottom sandwiches
+    %left_x = bottom_sandwich_center(1) - 
     
     %% Draw window in bottom sandwich    
 
