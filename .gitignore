@@ -3,3 +3,6 @@
 *.bak
 mask.asv
 .gitignore~
+*~
+*.txt
+*.dwg

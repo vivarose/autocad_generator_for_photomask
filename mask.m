@@ -43,7 +43,19 @@ function mask(varargin)
     clear left_x right_x y
     
     %% Draw screw holes in top and bottom sandwiches
-    %left_x = bottom_sandwich_center(1) - 
+    % calculate screw hole positions
+    left_x = bottom_sandwich_center(1) - distance_between_screws(1)/2;
+    right_x = bottom_sandwich_center(1) + distance_between_screws(1)/2;
+    bottom_sandwich_lower_y = bottom_sandwich_center(2) - distance_between_screws(2)/2;
+    bottom_sandwich_upper_y = bottom_sandwich_center(2) + distance_between_screws(2)/2;
+    top_sandwich_lower_y = top_sandwich_center(2) - distance_between_screws(2)/2;
+    top_sandwich_upper_y = top_sandwich_center(2) + distance_between_screws(2)/2;
+    
+    % draw screw holes in top and bottom sandwiches
+    bottom_screw_scr = draw_four_holes(left_x, right_x, bottom_sandwich_lower_y, bottom_sandwich_upper_y, tapped_screw_diameter);
+    top_screw_scr = draw_four_holes(left_x, right_x, top_sandwich_lower_y, top_sandwich_upper_y, clearance_screw_diameter);
+    
+    scr = [scr bottom_screw_scr top_screw_scr]
     
     %% Draw window in bottom sandwich    
 
@@ -60,6 +72,17 @@ function mask(varargin)
     
     %% uncomment to display the script
     scr
+end
+
+function o = draw_four_holes(left_x, right_x, lower_y, upper_y, diameter)
+    r = diameter/2;
+    
+    a = circ3(left_x, lower_y, r);
+    b = circ3(left_x, upper_y, r);
+    c = circ3(right_x, lower_y, r);
+    d = circ3(right_x, upper_y, r);
+    
+    o = [a b c d];
 end
 
 
