@@ -15,9 +15,9 @@ function mask(varargin)
     
     %% Draw circle for the chip
     diam = masksize;
-    circle_src = circ3(0,0,diam/2);
-    info = ['Wafer diameter is ' num2str(diam) ' um.' newline];
-    scr = [ erase_mask(masksize) circle_src zoomout()];
+    circle_scr = circ3(0,0,diam/2);
+    info = ['Wafer diameter is ' num2str(diam/mm) ' mm.' newline];
+    scr = [ erase_mask(masksize) circle_scr zoomout()];
     
     %% Label wafer with name and date
     o = setfontarialblack(1*mm);
@@ -25,6 +25,7 @@ function mask(varargin)
     p = writecenteredtext(['Horowitz ' date], 0, text_y); % name, date
     p2 = writecenteredtext('McKay 530', 0, text_y-1.6*mm); % room number
     scr = [scr o p p2];
+    info = ['Horowitz ' date '. McKay 530.' newline info];
     clear o p
     
     %% Specify chamber:
