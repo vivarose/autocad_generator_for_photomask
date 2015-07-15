@@ -7,15 +7,21 @@ function mask(varargin)
     newline = 10; % Windows newline character
     
     % settings
-    masksize = 3.8*cm;
-    textheight = 1.5*mm;
-    textspacing = 1*mm + textheight; % distance between bottom of square and bottom of text
-    %relative_center_y_top_row = chipsize-1*mm-(2500*um)/2; % measured from bottom of chip
-    %do_hatch = false;
+    bottom_sandwich_center = [0*mm 0*mm]; % x, y
+    bottom_sandwich_size = [3*in 2*in]; % length, height
+    top_sandwich_size = [3*in 1*in]; % length, height
+    distance_between_screws = [2.5*in 0.75*in]; % x, y
+    inlet_spacing = 22*mm;
+    bottom_sandwich_window_size = [15*mm, 10*mm]; % x, y
+    clearance_screw_diameter = 0.25*in;
+    tapped_screw_diameter = 0.2010*in;
     
-    %% Draw circle for the chip
-    diam = masksize;
-    circle_scr = circ3(0,0,diam/2);
+    % calculate 
+    top_sandwich_center = [bottom_sandwich_center(1) bottom_sandwich_center(2)+bottom_sandwich_size(2)+1*cm];
+    
+    
+    %% Draw rectangles for the two devices
+    
     info = ['Wafer diameter is ' num2str(diam/mm) ' mm.' newline];
     scr = [ erase_mask(masksize) circle_scr zoomout()];
     
@@ -128,11 +134,11 @@ function mask(varargin)
     %% finish up and save text files
     scr = [scr zoomout()];
     
-    fid = fopen(['mymask_' date '.scr'],'w');
+    fid = fopen(['clamp_' date '.scr'],'w');
     fprintf(fid,'%s',scr);
     fclose(fid);
     
-    fid = fopen(['mymask_info_' date '.txt'],'w');
+    fid = fopen(['clamp_info_' date '.txt'],'w');
     fprintf(fid,'%s',info);
     fclose(fid);
     
@@ -140,20 +146,7 @@ function mask(varargin)
     %scr
 end
 
-function info = infostring(x,y,chamber_diam,width_of_spacer,width_of_channel,num_chambers,inlet_spacing,device_width,newline)
-% sample text:
-%  1 chamber at (-1500,8200) has diameter 650 um, width_of_spacer=125 um, width_of_channel=250 um.
-    mm = 1000;
 
-    if num_chambers > 1
-        text1 = ' chambers with first at (';
-        text2 = ') each have diameter ';
-    else
-        text1 = ' chamber at (';
-        text2 = ') has diameter ';
-    end
-    info = [num2str(num_chambers) text1 num2str(x) ',' num2str(y) text2 num2str(chamber_diam) ' um, width_of_spacer=' num2str(width_of_spacer) ' um, width_of_channel=' num2str(width_of_channel) ' um. Device width without channels is ' num2str(device_width/mm) ' mm. Inlet spacing is ' num2str(inlet_spacing/mm) ' mm.'  newline];
-end
 
 function [arc_left_x,arc_right_x,top_arc_y,outer_circle_radius,o] = draw_chamber(x,y, chamber_diam,width_of_spacer, width_of_channel, inlet_spacing)
     % Calculations for chamber
