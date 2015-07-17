@@ -7,8 +7,8 @@ function mask(varargin)
     newline = 10; % Windows newline character
     
     % settings
-    masksize = 3.8*cm;
-    textheight = 1.5*mm;
+    masksize = 2*3.8*cm;
+    textheight = 1.9*mm;
     textspacing = 1*mm + textheight; % distance between bottom of square and bottom of text
     %relative_center_y_top_row = chipsize-1*mm-(2500*um)/2; % measured from bottom of chip
     %do_hatch = false;
@@ -184,7 +184,7 @@ end
 
 function [o,width_of_device_without_channels] = draw_chamber_with_input_output(x,y, chamber_diam,width_of_spacer, width_of_channel, inlet_spacing, num_chambers, label)   
     um = 1;
-    outlet_diameter = 775*um;
+    outlet_diameter = 2*775*um;
 
     this_x = x;
     this_y = y;
@@ -324,15 +324,7 @@ function o = rect_upper_left(w,h,x1,y2)
 end
 
 % width, height, center x, center y
-function o = rect2(w,h,varargin)
-    S.pos = [0 0];
-    for k=1:2:length(varargin); 
-        if (isfield(S,lower(varargin{k}))); 
-            S.(lower(varargin{k})) = varargin{k+1}; 
-        end; 
-    end;
-    x = S.pos(1);
-    y = S.pos(2);
+function o = rect2(w,h,x,y)
     o = sprintf('(command "rectangle" "%g,%g" "%g,%g")\n',x-w/2,y-h/2,x+w/2,y+h/2);
 end
 
