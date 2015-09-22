@@ -1,0 +1,19 @@
+ERASE
+-123.902,123.902
+123.902,-123.902
+
+(command "rectangle" "-38.1,-29.21" "38.1,29.21")
+(command "rectangle" "-38.1,39.21" "38.1,73.5")
+(command "zoom" "Extents")
+(command "circle" "-11,56.355" "1.25")
+(command "circle" "11,56.355" "1.25")
+(command "circle" "-30.48,-9.525" "2.5527")
+(command "circle" "-30.48,9.525" "2.5527")
+(command "circle" "30.48,-9.525" "2.5527")
+(command "circle" "30.48,9.525" "2.5527")
+(command "circle" "-30.48,46.83" "3.175")
+(command "circle" "-30.48,65.88" "3.175")
+(command "circle" "30.48,46.83" "3.175")
+(command "circle" "30.48,65.88" "3.175")
+(command "rectangle" "-15,-7.5" "15,7.5")
+(command "zoom" "Extents")
