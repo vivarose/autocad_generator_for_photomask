@@ -21,14 +21,16 @@ function mask(varargin)
     
     %% Label wafer with name and date
     o = setfontarialblack(1*mm);
-    text_y = -12000*um;
+    text_y = -3*cm;
     p = writecenteredtext(['Horowitz ' date], 0, text_y); % name, date
     p2 = writecenteredtext('McKay 530', 0, text_y-1.6*mm); % room number
     scr = [scr o p p2];
     info = ['Horowitz ' date '. McKay 530.' newline info];
     clear o p
     
-   
+    %% Draw the device
+    
+    
     
     %% finish up and save text files
     scr = [scr zoomout()];
